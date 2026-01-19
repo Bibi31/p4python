@@ -64,11 +64,11 @@ The `P4.Progress` base class provides these callback methods:
 ```python
 class Progress:
     def init(self, type):
-        """Called when operation starts. Type: 1=SendFile, 2=ReceiveFile, 3=Transfer, 4=Computation"""
+        """Called when operation starts. Type: TYPE_SENDFILE=1, TYPE_RECEIVEFILE=2, TYPE_TRANSFER=3, TYPE_COMPUTATION=4"""
         pass
     
     def setDescription(self, description, unit):
-        """Called with operation description and unit type (1=Percent, 2=Files, 3=KBytes, 4=MBytes)"""
+        """Called with operation description and unit type (UNIT_PERCENT=1, UNIT_FILES=2, UNIT_KBYTES=3, UNIT_MBYTES=4)"""
         pass
     
     def setTotal(self, total):
@@ -87,12 +87,12 @@ class Progress:
 ### Constants
 
 **Operation Types:**
-- `TYPE_SENDFILE = 1` - Sending files to server
+- `TYPE_SENDFILE = 1` - Sending files to server (submit)
 - `TYPE_RECEIVEFILE = 2` - Receiving files from server (sync)
 - `TYPE_TRANSFER = 3` - Network transfer
 - `TYPE_COMPUTATION = 4` - Server computation
 
-**Units:**
+**Unit Types:**
 - `UNIT_PERCENT = 1` - Percentage (0-100)
 - `UNIT_FILES = 2` - Number of files
 - `UNIT_KBYTES = 3` - Kilobytes
